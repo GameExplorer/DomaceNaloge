@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="33a8a6bf-3886-4330-9314-19aba4d520c6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/DN02/DN02.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DN02/DN02.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DN02/DN02.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +62,7 @@
     <configuration name="DN02" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="DN02.DN02" />
       <module name="DomaceNaloge" />
-      <option name="PROGRAM_PARAMETERS" value="pomlad zima jesen poletje" />
+      <option name="PROGRAM_PARAMETERS" value="pomlad jesen zima poletje" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="DN02.*" />
@@ -104,7 +104,7 @@
       <workItem from="1676557831214" duration="998000" />
       <workItem from="1676622806539" duration="2409000" />
       <workItem from="1676754435401" duration="12000" />
-      <workItem from="1677341940157" duration="15038000" />
+      <workItem from="1677341940157" duration="16201000" />
     </task>
     <servers />
   </component>
