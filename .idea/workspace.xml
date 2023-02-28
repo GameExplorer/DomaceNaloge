@@ -62,7 +62,7 @@
     <configuration name="DN02" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="DN02.DN02" />
       <module name="DomaceNaloge" />
-      <option name="PROGRAM_PARAMETERS" value="pomlad jesen zima poletje" />
+      <option name="PROGRAM_PARAMETERS" value="java je zakon!" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="DN02.*" />
@@ -105,6 +105,7 @@
       <workItem from="1676622806539" duration="2409000" />
       <workItem from="1676754435401" duration="12000" />
       <workItem from="1677341940157" duration="16201000" />
+      <workItem from="1677502002693" duration="9056000" />
     </task>
     <servers />
   </component>
