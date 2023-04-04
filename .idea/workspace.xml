@@ -5,6 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="33a8a6bf-3886-4330-9314-19aba4d520c6" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/DN06/DN06.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/DN07/DN07.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -36,28 +38,16 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;DN06&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.DN05">
-    <configuration name="DN01" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="DN01.DN01" />
-      <module name="DomaceNaloge" />
-      <option name="PROGRAM_PARAMETERS" value="argument" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="DN01.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Application.DN07">
     <configuration name="DN02" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="DN02.DN02" />
       <module name="DomaceNaloge" />
@@ -111,20 +101,33 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="DN07" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="DN07.DN07" />
+      <module name="DomaceNaloge" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="DN07.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
+      <item itemvalue="Application.DN07" />
       <item itemvalue="Application.DN05" />
       <item itemvalue="Application.DN04" />
       <item itemvalue="Application.DN03" />
       <item itemvalue="Application.DN02" />
-      <item itemvalue="Application.DN01" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.DN07" />
         <item itemvalue="Application.DN05" />
         <item itemvalue="Application.DN04" />
         <item itemvalue="Application.DN03" />
         <item itemvalue="Application.DN02" />
-        <item itemvalue="Application.DN01" />
       </list>
     </recent_temporary>
   </component>
@@ -148,6 +151,11 @@
       <workItem from="1678790819697" duration="2647000" />
       <workItem from="1679163083364" duration="1270000" />
       <workItem from="1679245009161" duration="2301000" />
+      <workItem from="1679744521704" duration="895000" />
+      <workItem from="1679843980495" duration="399000" />
+      <workItem from="1679853814987" duration="34000" />
+      <workItem from="1680453859662" duration="2160000" />
+      <workItem from="1680597899687" duration="11368000" />
     </task>
     <servers />
   </component>
