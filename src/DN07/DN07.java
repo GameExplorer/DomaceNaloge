@@ -15,7 +15,6 @@ public class DN07 {
         File f_tmp = new File("src/DN07/");
         int tmp = 6;
         //int st = Integer.parseInt(args[0]);
-        String iskanNiz = args[0];
 
         switch (tmp) {
             case 1:
@@ -34,7 +33,7 @@ public class DN07 {
                 zdruzi_datoteko(f_tmp, "dat");
                 break;
             case 6:
-                najdiVDatotekah(f_tmp, iskanNiz);
+                najdiVDatotekah(f_tmp, "besedilo");
                 break;
             case 7:
                 drevo(f_tmp);
@@ -135,9 +134,21 @@ public class DN07 {
 
     public static void najdiVDatotekah(File f, String iskanNiz) throws FileNotFoundException {
         if (f.isDirectory()) {
-            File[] datoteke = f.listFiles();
+            // get only the files in the current directory and not in its subdirectories
+            File[] datoteke = f.listFiles(file -> file.isFile() && file.getName().endsWith(".txt"));
+
+            // process each file in the current directory
             for (File datoteka : datoteke) {
-                najdiVDatotekah(datoteka, iskanNiz);
+                Scanner sc = new Scanner(datoteka);
+                int stevecVrstic = 0;
+                while (sc.hasNextLine()) {
+                    stevecVrstic++;
+                    String vrstica = sc.nextLine();
+                    if (vrstica.contains(iskanNiz)) {
+                        System.out.println(datoteka.getName() + " " + stevecVrstic + ": " + vrstica);
+                    }
+                }
+                sc.close();
             }
         } else if (f.isFile() && f.getName().endsWith(".txt")) {
             Scanner sc = new Scanner(f);
