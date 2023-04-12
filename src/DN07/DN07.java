@@ -6,6 +6,7 @@ import java.util.*;
 public class DN07 {
 
     /**
+     * Main metoda, ki glede na podanega argumenta požene tisto metodo s pomočjo switch ukaza.
      * @param args argumenti
      * @throws FileNotFoundException throws Exception
      */
@@ -13,7 +14,7 @@ public class DN07 {
         //File dat = new File(args[1]);
 
         File f_tmp = new File("src/DN07/");
-        int tmp = 6;
+        int tmp = 3;
         //int st = Integer.parseInt(args[0]);
 
         switch (tmp) {
@@ -27,10 +28,10 @@ public class DN07 {
                 izpis_vsebine(f_tmp, 1);
                 break;
             case 4:
-                kopiraj_datoteko("DA", "DADA");
+                kopiraj_datoteko("src/DN07/besedilo1.txt", "besedilo1_kopija.txt");
                 break;
             case 5:
-                zdruzi_datoteko(f_tmp, "dat");
+                zdruzi_datoteko(f_tmp, "zdruzeno.txt");
                 break;
             case 6:
                 najdiVDatotekah(f_tmp, "besedilo");
@@ -101,30 +102,33 @@ public class DN07 {
     }
 
     /**
+     * Metoda za vsako tekstovno datoteko izpiše prvih n vrstic njene vsebine.
+     * Če datoteka ni teksotvna poleg imena izpiše še (ni teksotvna datoteka).
      * @param f argument
      * @param n št. vrstice
      * @throws FileNotFoundException throws Exception
      */
     public static void izpis_vsebine(File f, int n) throws FileNotFoundException {
-        File[] files = f.listFiles();
-        if (f.isDirectory()) {
-            if (files != null) {
-                for (File file : files) {
-                    if (file.isFile()) { // only process files in the first level
-                        izpis_vsebine(file, n);
+        File[] datoteke = f.listFiles(); //ustvari seznam datotek in ga shrani v datoteke
+        if (f.isDirectory()) { //preveri ali je datoteka f direktorij
+            if (datoteke != null) { //preveri ali datoteke obstajajo
+                for (File datoteka : datoteke) { //če if true potem se za vsako datoteko v seznamu datoteke preveri če je dat.
+                    if (datoteka.isFile()) { // če je datoteka dat. potem izpiše prvnih n vrtic vsebine datoteke
+                        izpis_vsebine(datoteka, n);
                     }
                 }
             }
-        } else if (f.getName().toLowerCase().endsWith(".txt")) {
-            System.out.printf("%s%n", f.getName());
-            Scanner scanner = new Scanner(f);
-            for (int i = 0; i < n && scanner.hasNextLine(); i++) {
-                System.out.println("    " + scanner.nextLine());
+        } else if (f.getName().toLowerCase().endsWith(".txt")) { //pogleda če je datoteka tekstovna datoteka, torej če se konča na .txt
+            System.out.printf("%s%n", f.getName());  //izpis tekstovne datoteke (ime)
+            Scanner sc = new Scanner(f);
+            for (int i = 0; i < n && sc.hasNextLine(); i++) { //preberemmo prvih n vrstic datoteke s pomočjo Scannerja
+                System.out.println("    " + sc.nextLine()); //izpis vrstic z zamikom 4 presledkov
             }
-            scanner.close();
-        } else System.out.println(f.getName() + " (ni tekstovna datoteka)");
+            sc.close();
+        } else System.out.println(f.getName() + " (ni tekstovna datoteka)"); //če datoteka ni tekstovna
 
     }
+
 
     public static void kopiraj_datoteko(String vhodnaDatoteka, String izhodnaDatoteka) {
     }
@@ -132,43 +136,55 @@ public class DN07 {
     public static void zdruzi_datoteko(File direktorij, String izhodnaDatoteka) {
     }
 
+    /**
+     * V vseh tekstovnih datotekah direktorija, ki ga podamo v f poišče besedo oz. niz podan v iskanNiz
+     * Za vsako datoteko, ki vsebuje niz izpiše njeno ime, št. vrstice v kateri se niz nahaja in celotno vrstico, v
+     * kateri se nahaja niz.
+     * Razdelil sem na dve metodi zato, ker ne maram špagetov
+     * .
+     * Če je f direktorij se po vseh datotekah v direktoriju poišče niz, če pa je datoteka se pa poišče  v tisti dat.
+     * Če je direktorij uporabimo f.listFiles in dobimo vse datoteke v direktoriju, ki se končajo na .txt
+     * Nato za vsako datoteko pokličemo metodo scanner.
+     * V primeru da je f datoteka metoda preveri, če se datoteka konča na .txt in šele nato pokliče scanner metodo.
+     * @param f - argument
+     * @param iskanNiz - iskani niz, ki ga iščemo v datotekah
+     * @throws FileNotFoundException
+     */
     public static void najdiVDatotekah(File f, String iskanNiz) throws FileNotFoundException {
-        if (f.isDirectory()) {
-            // get only the files in the current directory and not in its subdirectories
-            File[] datoteke = f.listFiles(file -> file.isFile() && file.getName().endsWith(".txt"));
+        if (f.isDirectory()) { //preveri če je podana datoteka direktorij, le je poiššče vse daoteke v tem direktoriju,
+            File[] datoteke = f.listFiles(file -> file.isFile() && file.getName().endsWith(".txt")); //ki se končajo na .txt
 
-            // process each file in the current directory
             for (File datoteka : datoteke) {
-                Scanner sc = new Scanner(datoteka);
-                int stevecVrstic = 0;
-                while (sc.hasNextLine()) {
-                    stevecVrstic++;
-                    String vrstica = sc.nextLine();
-                    if (vrstica.contains(iskanNiz)) {
-                        System.out.println(datoteka.getName() + " " + stevecVrstic + ": " + vrstica);
-                    }
-                }
-                sc.close();
+                scanner(datoteka, iskanNiz);
             }
         } else if (f.isFile() && f.getName().endsWith(".txt")) {
-            Scanner sc = new Scanner(f);
-            int stevecVrstic = 0;
-            while (sc.hasNextLine()) {
-                stevecVrstic++;
-                String vrstica = sc.nextLine();
-                if (vrstica.contains(iskanNiz)) {
-                    System.out.println(f.getName() + " " + stevecVrstic + ": " + vrstica);
-                }
-            }
-            sc.close();
+            scanner(f, iskanNiz);
         }
     }
 
-    public static void drevo(File f) {
-        File[] datoteke = f.listFiles();
+    /**
+     * Metoda prejme argument f in iskaniNiz. Odpre datoteko f in prebere vako vrstico dokller ne najde niza,
+     * ki ga iščemo. stevecVrstic šteje vrstice in ko najde niz metoda izpiše ime datoteke in številko vrstice ter
+     * vsebino v tisti vrstici, ki vsebuje naš iskanNiz.
+     * @param f
+     * @param iskanNiz
+     * @throws FileNotFoundException
+     */
 
-
+    private static void scanner(File f, String iskanNiz) throws FileNotFoundException {
+        Scanner sc = new Scanner(f);
+        int stevecVrstic = 0;
+        while (sc.hasNextLine()) {
+            stevecVrstic++;
+            String vrstica = sc.nextLine();
+            if (vrstica.contains(iskanNiz)) {
+                System.out.println(f.getName() + " " + stevecVrstic + ": " + vrstica);
+            }
+        }
+        sc.close();
     }
+
+    public static void drevo(File f) {}
 
     public static void resiMatematicneIzraze(File f) {
     }
