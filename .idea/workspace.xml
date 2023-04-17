@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="33a8a6bf-3886-4330-9314-19aba4d520c6" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/DN08/DN08.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -31,35 +32,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "extract.method.default.visibility": "private",
+    "git-widget-placeholder": "DN08",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
-  <component name="RunManager" selected="Application.DN06">
-    <configuration name="DN03" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="DN03.DN03" />
-      <module name="DomaceNaloge" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="DN03.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+}]]></component>
+  <component name="RunManager" selected="Application.DN08">
     <configuration name="DN04" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="DN04.DN04" />
       <module name="DomaceNaloge" />
@@ -113,20 +101,34 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="DN08" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="DN08.DN08" />
+      <module name="DomaceNaloge" />
+      <option name="PROGRAM_PARAMETERS" value="planeti.txt" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="DN08.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
+      <item itemvalue="Application.DN08" />
       <item itemvalue="Application.DN06" />
       <item itemvalue="Application.DN07" />
       <item itemvalue="Application.DN05" />
       <item itemvalue="Application.DN04" />
-      <item itemvalue="Application.DN03" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.DN08" />
         <item itemvalue="Application.DN06" />
         <item itemvalue="Application.DN07" />
         <item itemvalue="Application.DN05" />
         <item itemvalue="Application.DN04" />
-        <item itemvalue="Application.DN03" />
       </list>
     </recent_temporary>
   </component>
@@ -159,6 +161,7 @@
       <workItem from="1680711071884" duration="3161000" />
       <workItem from="1681285064974" duration="12073000" />
       <workItem from="1681318127917" duration="66000" />
+      <workItem from="1681727037156" duration="9611000" />
     </task>
     <servers />
   </component>
