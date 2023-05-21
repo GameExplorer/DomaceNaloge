@@ -1,11 +1,18 @@
 package DN11;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
+
+/**
+ * Kraj razred z imeno, kratico
+ *
+ */
 class Kraj {
     private String ime;
     private String kratica;
@@ -76,7 +83,7 @@ abstract class Vlak {
         return String.format(
                 "Vlak %s (%s) %s -- %s (%s) (%d min, %.2f EUR)",
                 idVlak, opis(), zacetniKraj.getIme(), koncniKraj.getIme(), zacetniKraj.getKratica(),
-                trajanjeVoznje, cenaVoznje()
+                getTrajanjeVoznje(), cenaVoznje()
         );
     }
 }
@@ -98,7 +105,9 @@ class RegionalniVlak extends Vlak {
 
     @Override
     public double cenaVoznje() {
-        return this.hitrost * (this.getTrajanjeVoznje() / 60.0) * this.cenaNaKm;
+        double razdalja = (double) (hitrost * super.getTrajanjeVoznje()) / 60;
+        double cena = razdalja * this.cenaNaKm;
+        return cena;
     }
 }
 
@@ -121,7 +130,9 @@ class EkspresniVlak extends Vlak {
 
     @Override
     public double cenaVoznje() {
-        return this.hitrost * (this.getTrajanjeVoznje() / 60.0) * this.cenaNaKm + this.dopl;
+        double razdalja = (double) (hitrost * super.getTrajanjeVoznje()) / 60;
+        double cena = razdalja * cenaNaKm + dopl;
+        return cena;
     }
 }
 
@@ -211,7 +222,7 @@ class EuroRail {
                             EkspresniVlak vlak = new EkspresniVlak(oznakaVlaka, najdiKraj(zacetniKraj), najdiKraj(koncniKraj), ure, minute);
                             dodajVlak(vlak);
                         } else {
-                            RegionalniVlak vlak = new RegionalniVlak(oznakaVlaka, najdiKraj(zacetniKraj), najdiKraj(koncniKraj), ure);
+                            RegionalniVlak vlak = new RegionalniVlak(oznakaVlaka, najdiKraj(zacetniKraj), najdiKraj(koncniKraj), Integer.parseInt(trajanje));
                             dodajVlak(vlak);
                         }
                     }
