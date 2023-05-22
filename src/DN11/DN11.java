@@ -152,11 +152,11 @@ class EkspresniVlak extends Vlak {
 
 /**
  * Razred EuroRail
- * Predstavlja celotno želežniško omrežje. Vsebuje zbirko vseh krajev in zbirko vseh vlakov.
- * metoda preberiKraje(String ime datoteke) prrebere podatke o krajih ter jih zapiše v zbirko
- * metoda preberiPovezave(String ime datoteke) prebere podaatke o vlakih, ter jih zapiše v zbirko vlakov
+ * Predstavlja celotno železniško omrežje. Vsebuje zbirko vseh krajev in zbirko vseh vlakov.
+ * metoda preberiKraje(String ime datoteke) prebere podatke o krajih ter jih zapiše v zbirko
+ * metoda preberiPovezave(String ime datoteke) prebere podatke o vlakih, ter jih zapiše v zbirko vlakov
  * metoda izpisiKraje() izpiše vse prebrane kraje
- * metoda izpisiPovezave() izpiše vse prebrane vlake in podatke o trajanju in ceni vožnje
+ * metoda izpisiPovezave() izpiše vse prebrane vlake in podatke o trajanju vožnje in o ceni
  */
 class EuroRail {
     private List<Kraj> kraji;
