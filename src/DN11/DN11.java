@@ -116,8 +116,7 @@ class RegionalniVlak extends Vlak {
     @Override
     public double cenaVoznje() {
         double razdalja = (HITROST * super.getTrajanjeVoznje()) / 60;
-        double cena = razdalja * CenaNaKm;
-        return cena;
+        return razdalja * CenaNaKm;
     }
 }
 
@@ -130,7 +129,7 @@ class RegionalniVlak extends Vlak {
 class EkspresniVlak extends Vlak {
     private static final int HITROST = 110;
     private static final double CenaNaKm = 0.154;
-    private double dopl;
+    private final double dopl;
 
     public EkspresniVlak(String oznaka, Kraj zacetek, Kraj konec, int trajanje, double dopl) {
         super(oznaka, zacetek, konec, trajanje);
@@ -145,8 +144,7 @@ class EkspresniVlak extends Vlak {
     @Override
     public double cenaVoznje() {
         double razdalja = (double) (HITROST * super.getTrajanjeVoznje()) / 60;
-        double cena = razdalja * CenaNaKm + dopl;
-        return cena;
+        return razdalja * CenaNaKm + dopl;
     }
 }
 
@@ -159,8 +157,8 @@ class EkspresniVlak extends Vlak {
  * metoda izpisiPovezave() izpiše vse prebrane vlake in podatke o trajanju vožnje in o ceni
  */
 class EuroRail {
-    private List<Kraj> kraji;
-    private List<Vlak> vlaki;
+    private final List<Kraj> kraji;
+    private final List<Vlak> vlaki;
 
     public EuroRail() {
         kraji = new ArrayList<>();
