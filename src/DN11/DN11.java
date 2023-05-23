@@ -56,12 +56,18 @@ abstract class Vlak {
     private final Kraj koncniKraj;
     private final int trajanjeVoznje;
 
+    private final double cas = 5;
+
     public Vlak(String idVlak, Kraj zacetniKraj, Kraj koncniKraj, int trajanjeVoznje) {
         this.idVlak = idVlak;
         this.zacetniKraj = zacetniKraj;
         this.koncniKraj = koncniKraj;
         this.trajanjeVoznje = trajanjeVoznje;
         zacetniKraj.dodajVlak(this);
+    }
+
+    public double getCas() {
+        return cas;
     }
 
     public String getIdVlak() {
@@ -86,6 +92,7 @@ abstract class Vlak {
 
 
     public String toString() {
+
         return String.format(
                 "Vlak %s (%s) %s -- %s (%s) (%d min, %.2f EUR)",
                 idVlak, opis(), zacetniKraj.getIme(), koncniKraj.getIme(), zacetniKraj.getKratica(),
