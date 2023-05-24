@@ -1,5 +1,4 @@
 package DN11;
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -34,12 +33,26 @@ class Kraj {
         return odhodi;
     }
 
+    public boolean dodajOdhod(Vlak vlak) {
+        if (odhodi.contains(vlak)) {
+            return false;
+        } else {
+            odhodi.add(vlak);
+            return true;
+        }
+    }
     public void dodajVlak(Vlak vlak) {
         odhodi.add(vlak);
     }
 
     public String toString() {
-        return String.format("%s (%s)", ime, kratica);
+        StringBuilder sb = new StringBuilder();
+        sb.append(String.format("%s (%s)\n", ime, kratica));
+        sb.append("odhodi vlakov (").append(odhodi.size()).append("):\n");
+        for (Vlak vlak : odhodi) {
+            sb.append(" - ").append(vlak.toString()).append("\n");
+        }
+        return sb.toString();
     }
 }
 
@@ -54,11 +67,10 @@ abstract class Vlak {
     private final String idVlak;
     private final Kraj zacetniKraj;
     private final Kraj koncniKraj;
-    private final int trajanjeVoznje;
+    private final double trajanjeVoznje;
 
-    private final double cas = 5;
 
-    public Vlak(String idVlak, Kraj zacetniKraj, Kraj koncniKraj, int trajanjeVoznje) {
+    public Vlak(String idVlak, Kraj zacetniKraj, Kraj koncniKraj, double trajanjeVoznje) {
         this.idVlak = idVlak;
         this.zacetniKraj = zacetniKraj;
         this.koncniKraj = koncniKraj;
@@ -66,9 +78,6 @@ abstract class Vlak {
         zacetniKraj.dodajVlak(this);
     }
 
-    public double getCas() {
-        return cas;
-    }
 
     public String getIdVlak() {
         return idVlak;
@@ -82,7 +91,7 @@ abstract class Vlak {
         return koncniKraj;
     }
 
-    public int getTrajanjeVoznje() {
+    public double getTrajanjeVoznje() {
         return trajanjeVoznje;
     }
 
@@ -92,12 +101,23 @@ abstract class Vlak {
 
 
     public String toString() {
+        String cas = "";
 
-        return String.format(
-                "Vlak %s (%s) %s -- %s (%s) (%d min, %.2f EUR)",
-                idVlak, opis(), zacetniKraj.getIme(), koncniKraj.getIme(), zacetniKraj.getKratica(),
+        if (getTrajanjeVoznje() % 1 != 0) {
+            cas = String.format(
+                    "Vlak %s (%s) %s -- %s (%s) (%.2fh, %.2f EUR)",
+                    idVlak, opis(), zacetniKraj.getIme(), koncniKraj.getIme(), zacetniKraj.getKratica(),
                     getTrajanjeVoznje(), cenaVoznje()
-        );
+            );
+        }
+        if (getTrajanjeVoznje() % 1 == 0) {
+            cas = String.format(
+                    "Vlak %s (%s) %s -- %s (%s) (%.0f min, %.2f EUR)",
+                    idVlak, opis(), zacetniKraj.getIme(), koncniKraj.getIme(), zacetniKraj.getKratica(),
+                    getTrajanjeVoznje(), cenaVoznje()
+            );
+        }
+        return cas;
     }
 }
 
@@ -111,7 +131,7 @@ class RegionalniVlak extends Vlak {
     private static final double HITROST = 50;
     private static final double CenaNaKm = 0.068;
 
-    public RegionalniVlak(String oznaka, Kraj zacetek, Kraj konec, int trajanje) {
+    public RegionalniVlak(String oznaka, Kraj zacetek, Kraj konec, double trajanje) {
         super(oznaka, zacetek, konec, trajanje);
     }
 
@@ -122,8 +142,8 @@ class RegionalniVlak extends Vlak {
 
     @Override
     public double cenaVoznje() {
-        double razdalja = (HITROST * super.getTrajanjeVoznje()) / 60;
-        return razdalja * CenaNaKm;
+        double cena = (HITROST * super.getTrajanjeVoznje()) / 60;
+        return cena * CenaNaKm;
     }
 }
 
@@ -138,9 +158,13 @@ class EkspresniVlak extends Vlak {
     private static final double CenaNaKm = 0.154;
     private final double dopl;
 
-    public EkspresniVlak(String oznaka, Kraj zacetek, Kraj konec, int trajanje, double dopl) {
+    public EkspresniVlak(String oznaka, Kraj zacetek, Kraj konec, double trajanje, double dopl) {
         super(oznaka, zacetek, konec, trajanje);
         this.dopl = dopl;
+    }
+
+    public double getDopl() {
+        return dopl;
     }
 
     @Override
@@ -150,8 +174,26 @@ class EkspresniVlak extends Vlak {
 
     @Override
     public double cenaVoznje() {
-        double razdalja = (double) (HITROST * super.getTrajanjeVoznje()) / 60;
-        return razdalja * CenaNaKm + dopl;
+        double trajenjeVure = super.getTrajanjeVoznje();  // Čas trajanja v urah
+        double cena;
+
+        if (trajenjeVure % 1 == 0) {
+            // Čas je celo število (npr. 2 ur)
+            int skupajMinute = (int) (trajenjeVure * 60);  // Pretvorba v minute
+
+            cena = (double) (HITROST * skupajMinute) / 60;  // Izračun cene na podlagi trajanja v minutah
+        } else {
+            // Čas vsebuje decimalni del (npr. 1.53 ur)
+            int ure = (int) trajenjeVure;  // Celotno število ur
+            int minute = (int) ((trajenjeVure - ure) * 60);  // Pretvorba decimalnega dela v minute
+
+            int skupajMinute = ure * 60 + minute;  // Skupno trajanje v minutah
+
+            cena = (double) (HITROST * skupajMinute) / 60;  // Izračun cene na podlagi trajanja v minutah
+        }
+
+        cena = cena * CenaNaKm + getDopl();
+        return cena;
     }
 }
 
@@ -248,10 +290,10 @@ class EuroRail {
 
                 if(podatki.length == 5) {
                     double doplacanZnesek = Double.parseDouble(podatki[4].trim());
-                    vlak = new EkspresniVlak(oznakaVlaka, zacetniKrajIme, koncniKrajIme, (int) trajanje, doplacanZnesek);
+                    vlak = new EkspresniVlak(oznakaVlaka, zacetniKrajIme, koncniKrajIme, trajanje, doplacanZnesek);
                 }
                 else {
-                    vlak = new RegionalniVlak(oznakaVlaka, zacetniKrajIme, koncniKrajIme, (int) trajanje);
+                    vlak = new RegionalniVlak(oznakaVlaka, zacetniKrajIme, koncniKrajIme, trajanje);
                 }
                 vlaki.add(vlak);
             }
@@ -268,6 +310,12 @@ class EuroRail {
         System.out.println("Vlaki, ki povezujejo kraje:");
         for (Vlak vlak : vlaki) {
             System.out.println(vlak.toString());
+        }
+    }
+
+    public void izpisiKraje2() {
+        for (Kraj kraj : kraji) {
+            System.out.println(kraj.toString());
         }
     }
 }
@@ -342,8 +390,14 @@ public class DN11 {
             } else {
                 System.out.println("Prišlo je do napake pri branju krajev in/ali povezav.");
             }
-        } else {
+        }
+        else if(naloga == 2) {
+            euroRail.izpisiKraje2();
+        }
+        else {
             System.out.println("Napaka: Neveljavna naloga.");
         }
+
+
     }
 }
