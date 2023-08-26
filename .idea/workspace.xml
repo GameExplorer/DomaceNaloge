@@ -5,7 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="33a8a6bf-3886-4330-9314-19aba4d520c6" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/DN12/DN12.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DN02/DN02.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DN02/DN02.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DN04/DN04.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DN04/DN04.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DN05/DN05.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DN05/DN05.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DN11/DN11.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DN11/DN11.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,29 +37,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "extract.method.default.visibility": "private",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/Dom/Documents/GitHub/DomaceNaloge",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Dom/Documents/GitHub/DomaceNaloge&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
-  <component name="RunManager" selected="Application.DN11 (1)">
-    <configuration name="DN11 (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="DN11.DN11" />
+}</component>
+  <component name="RunManager" selected="Application.DN05">
+    <configuration name="DN05" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="DN05.DN05" />
       <module name="DomaceNaloge" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="DN11.*" />
+          <option name="PATTERN" value="DN05.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -62,7 +67,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DN11 (3)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="DN11 (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="DN11.DN11" />
       <module name="DomaceNaloge" />
       <extension name="coverage">
@@ -115,19 +120,19 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.DN05" />
       <item itemvalue="Application.DN11 (1)" />
       <item itemvalue="Application.DN11 (5)" />
       <item itemvalue="Application.DN11" />
-      <item itemvalue="Application.DN11 (3)" />
       <item itemvalue="Application.DN11 (4)" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.DN05" />
         <item itemvalue="Application.DN11 (1)" />
         <item itemvalue="Application.DN11 (5)" />
         <item itemvalue="Application.DN11" />
         <item itemvalue="Application.DN11 (4)" />
-        <item itemvalue="Application.DN11 (3)" />
       </list>
     </recent_temporary>
   </component>
@@ -170,6 +175,7 @@
       <workItem from="1684851122143" duration="3723000" />
       <workItem from="1684928316980" duration="15700000" />
       <workItem from="1691078658048" duration="1004000" />
+      <workItem from="1693039610295" duration="10000" />
     </task>
     <servers />
   </component>

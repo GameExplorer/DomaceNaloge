@@ -5,6 +5,14 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * Program iz podanih argumentov sestavi niz ter prešteje kolikokrat se v tem nizu pojavi posamezna števka ('0', .. '9')
+ * Ob koncu naj program izpiše najbolj pogosto uporabljeno(e) števko(e) ter frekvenco uporabe
+ *
+ * 'a8d 82 d1810x51 -> 1 8 (3)
+ *
+ * Pri izpisu upoštevajte tudi primer, da v nizu ni nobene števke
+ */
 public class DN05 {
     public static void main(String[] args) {
         args = new String[]{"1234321"};
@@ -33,5 +41,4 @@ public class DN05 {
 
         else System.out.println("'" + vnos + "' -> " + s + " (" + Collections.max(sest) + ")");
     }
-
 }
