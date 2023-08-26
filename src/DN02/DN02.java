@@ -2,8 +2,8 @@ package DN02;
 
 public class DN02 {
     public static void main(String[] args) {
-        String zvezdice = "*";
-        int dolzina = 0;
+        String zvezdice;
+        int dolzina;
         if (args.length == 0) System.out.println("Napaka pri uporabi programa!");
 
         else if (args.length == 1) { //za enostavčne argumente
