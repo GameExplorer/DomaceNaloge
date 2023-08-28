@@ -3,7 +3,6 @@ package DN04;
 public class DN04 {
     public static void main(String[] args) {
         args = new String[]{"010000010100001001000011"};
-
         StringBuilder izpis = new StringBuilder();
 
         char[] tabela = args[0].toCharArray();
