@@ -50,9 +50,22 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.DN04_1">
+  <component name="RunManager" selected="Application.DN04_2">
     <configuration name="DN04_1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="DN04.DN04_1" />
+      <module name="DomaceNaloge" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="DN04.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DN04_2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="DN04.DN04_2" />
       <module name="DomaceNaloge" />
       <extension name="coverage">
         <pattern>
@@ -103,33 +116,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DN11 (5)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="DN11.DN11" />
-      <module name="DomaceNaloge" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="DN11.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <list>
       <item itemvalue="Application.DN04_1" />
+      <item itemvalue="Application.DN04_2" />
       <item itemvalue="Application.DN05_1" />
       <item itemvalue="Application.DN05" />
       <item itemvalue="Application.DN11 (1)" />
-      <item itemvalue="Application.DN11 (5)" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.DN04_2" />
         <item itemvalue="Application.DN04_1" />
         <item itemvalue="Application.DN05_1" />
         <item itemvalue="Application.DN05" />
         <item itemvalue="Application.DN11 (1)" />
-        <item itemvalue="Application.DN11 (5)" />
       </list>
     </recent_temporary>
   </component>
