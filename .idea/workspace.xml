@@ -5,11 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="33a8a6bf-3886-4330-9314-19aba4d520c6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/DN12/DN12.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/DN05/DN05_1.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DN02/DN02.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DN02/DN02.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DN04/DN04.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DN04/DN04.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DN05/DN05.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DN05/DN05.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DN11/DN11.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DN11/DN11.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -53,7 +51,7 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.DN05">
+  <component name="RunManager" selected="Application.DN05_1">
     <configuration name="DN05" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="DN05.DN05" />
       <module name="DomaceNaloge" />
@@ -67,12 +65,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DN11 (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="DN11.DN11" />
+    <configuration name="DN05_1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="DN05.DN05_1" />
       <module name="DomaceNaloge" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="DN11.*" />
+          <option name="PATTERN" value="DN05.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -80,7 +78,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DN11 (4)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="DN11 (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="DN11.DN11" />
       <module name="DomaceNaloge" />
       <extension name="coverage">
@@ -120,19 +118,19 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.DN05_1" />
       <item itemvalue="Application.DN05" />
       <item itemvalue="Application.DN11 (1)" />
       <item itemvalue="Application.DN11 (5)" />
       <item itemvalue="Application.DN11" />
-      <item itemvalue="Application.DN11 (4)" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.DN05_1" />
         <item itemvalue="Application.DN05" />
         <item itemvalue="Application.DN11 (1)" />
         <item itemvalue="Application.DN11 (5)" />
         <item itemvalue="Application.DN11" />
-        <item itemvalue="Application.DN11 (4)" />
       </list>
     </recent_temporary>
   </component>
@@ -176,6 +174,7 @@
       <workItem from="1684928316980" duration="15700000" />
       <workItem from="1691078658048" duration="1004000" />
       <workItem from="1693039610295" duration="10000" />
+      <workItem from="1693039627732" duration="3008000" />
     </task>
     <servers />
   </component>
