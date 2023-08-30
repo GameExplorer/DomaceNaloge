@@ -19,7 +19,7 @@ public class DN06 {
      * @return - return
      */
     public static String povecaj(String niz) {
-        int z = niz.length() - 1;
+        int z = niz.length() - 1; //zadnja črka v nizu
 
         //poiščem prvo črko od zadaj, ki je različna od z ...
         while(z >= 0) {
@@ -32,7 +32,6 @@ public class DN06 {
         return null;
     }
     /**
-     *
      * @param args - argument
      */
     public static void main(String[] args) {
@@ -44,7 +43,7 @@ public class DN06 {
         }
 
         String niz = args[0];
-        int csNiz = bsdChecksum(niz);
+        int csNiz = bsdChecksum(niz); //checksum niza
 
         //začnem z nizom, ki je enako dolg kot 1. argument in je sestavljen iz samih 'a'-jev
         String trNiz = "a".repeat(niz.length());
