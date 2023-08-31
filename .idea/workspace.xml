@@ -5,6 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="33a8a6bf-3886-4330-9314-19aba4d520c6" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/DN07/DN07_1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DN11/DN11.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DN11/DN11.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -48,7 +50,7 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.DN04_2">
+  <component name="RunManager" selected="Application.DN07_1">
     <configuration name="DN04_1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="DN04.DN04_1" />
       <module name="DomaceNaloge" />
@@ -101,12 +103,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DN11 (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="DN11.DN11" />
+    <configuration name="DN07_1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="DN07.DN07_1" />
       <module name="DomaceNaloge" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="DN11.*" />
+          <option name="PATTERN" value="DN07.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -115,19 +117,19 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.DN07_1" />
       <item itemvalue="Application.DN04_1" />
       <item itemvalue="Application.DN04_2" />
       <item itemvalue="Application.DN05_1" />
       <item itemvalue="Application.DN05" />
-      <item itemvalue="Application.DN11 (1)" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.DN07_1" />
         <item itemvalue="Application.DN04_2" />
         <item itemvalue="Application.DN04_1" />
         <item itemvalue="Application.DN05_1" />
         <item itemvalue="Application.DN05" />
-        <item itemvalue="Application.DN11 (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -174,6 +176,7 @@
       <workItem from="1693039627732" duration="8728000" />
       <workItem from="1693237340305" duration="10000" />
       <workItem from="1693336644598" duration="3236000" />
+      <workItem from="1693495061005" duration="6707000" />
     </task>
     <servers />
   </component>
