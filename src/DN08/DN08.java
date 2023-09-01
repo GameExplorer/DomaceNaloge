@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-
 class Planet {
     private String ime;
     private int radij;
@@ -25,22 +24,22 @@ class Planet {
     }
 }
 public class DN08 {
-    public static Planet[] preberiPlanete(String imeDatoteke) throws FileNotFoundException {
+    public static Planets[] preberiPlanete(String imeDatoteke) throws FileNotFoundException {
         int st = 0;
-        Planet[] planeti = new Planet[8];
+        Planets[] planeti = new Planets[8];
 
         Scanner sc = new Scanner(new File(imeDatoteke), "UTF-8");
 
         while(sc.hasNextLine()) {
             String[] deli = sc.nextLine().split(":");
-            if(deli.length == 2) planeti[st++] = new Planet(deli[0], Integer.parseInt(deli[1]));
+            if(deli.length == 2) planeti[st++] = new Planets(deli[0], Integer.parseInt(deli[1]));
 
         }
         sc.close();
         return planeti;
     }
     public static void main(String[] args) throws FileNotFoundException {
-        Planet[] planeti = preberiPlanete(args[0]);
+        Planets[] planeti = preberiPlanete(args[0]);
 
         String[] deli = args[1].split("[+]");
         double vsota = 0;
