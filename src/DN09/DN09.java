@@ -1,7 +1,13 @@
 package DN09;
 
+/**
+ * Razredi implementirajo vmesnik Lik.
+ * Razred Kvadrat ne potrebuje implementirati Lika ker nam je lažje če implementiramo razred Pravokotnik, tam smo
+ * že ustvarili eno točko (a)
+ */
 class Pravokotnik implements LIk {
-    int a, b;
+    private final int a;
+    private final int b;
 
     Pravokotnik(int a, int b) {
         this.a = a;
@@ -20,8 +26,8 @@ class Kvadrat extends Pravokotnik {
 }
 
 class NKotnik implements LIk {
-    int a; //veliksot stranice
-    int n; //stevilo stranic
+    private final int a; //veliksot stranice
+    private final int n; //stevilo stranic
 
     NKotnik(int a, int n) {
         this.a = a;
@@ -32,8 +38,6 @@ class NKotnik implements LIk {
         return n * a;
     }
 }
-
-
 
 public class DN09 {
     static int skupniObseg(LIk[] liki) {
