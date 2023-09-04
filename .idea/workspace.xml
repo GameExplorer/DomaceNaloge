@@ -46,20 +46,7 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.DN11_1">
-    <configuration name="DN04_2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="DN04.DN04_2" />
-      <module name="DomaceNaloge" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="DN04.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Application.DN12">
     <configuration name="DN07_1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="DN07.DN07_1" />
       <module name="DomaceNaloge" />
@@ -112,20 +99,33 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="DN12" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="DN12.DN12" />
+      <module name="DomaceNaloge" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="DN12.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
+      <item itemvalue="Application.DN12" />
       <item itemvalue="Application.DN11_1" />
       <item itemvalue="Application.DN10" />
       <item itemvalue="Application.DN08_1" />
       <item itemvalue="Application.DN07_1" />
-      <item itemvalue="Application.DN04_2" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.DN12" />
         <item itemvalue="Application.DN11_1" />
         <item itemvalue="Application.DN10" />
         <item itemvalue="Application.DN08_1" />
         <item itemvalue="Application.DN07_1" />
-        <item itemvalue="Application.DN04_2" />
       </list>
     </recent_temporary>
   </component>
@@ -178,6 +178,7 @@
       <workItem from="1693733636280" duration="1734000" />
       <workItem from="1693750116521" duration="16000" />
       <workItem from="1693773052897" duration="12059000" />
+      <workItem from="1693836562257" duration="468000" />
     </task>
     <servers />
   </component>
