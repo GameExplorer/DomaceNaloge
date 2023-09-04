@@ -7,6 +7,7 @@ import java.util.*;
 
 public class DN11_1 {
     public static void main(String[] args) {
+        args = new String[]{"2", "src/DN11/kraji.txt", "src/DN11/povezave.txt"};
         Locale.setDefault(Locale.ENGLISH);
         if (args.length < 3) {
             System.out.println("NAPAKA: podaj argumente programa!");
@@ -49,8 +50,8 @@ public class DN11_1 {
                     System.out.println("UPORABA: 4 datoteka_kraji datoteka_povezave max_prestopanj ime_kraja");
                     System.exit(0);
                 }
-                int p = Integer.parseInt(args[3]);
-                String ime = args[4];
+                int p = Integer.parseInt(args[3]); //prestopanja
+                String ime = args[4]; //ime kraja
                 int ind = 5;
                 while (ind < args.length)
                     ime += " " + args[ind++];
@@ -59,6 +60,7 @@ public class DN11_1 {
                     System.out.printf("NAPAKA: podanega kraja (%s) ni na seznamu krajev.%n", ime);
                     System.exit(0);
                 }
+
                 Set<Kraj1> destinacije = kraj.destinacije(p);
                 if (destinacije.isEmpty()) {
                     System.out.printf("Iz kraja %s ni nobenih povezav.%n", kraj);
@@ -78,6 +80,10 @@ public class DN11_1 {
     }
 }
 
+/**
+ * Kraji hrani podatke o kraju. Imamo še ID spremenljivko ki nam pride prav pri branju
+ * binarnih datotek
+ */
 class Kraj1 implements Comparable<Kraj1> {
     private static int naslednjiID = 1;
     private int id;
@@ -85,12 +91,15 @@ class Kraj1 implements Comparable<Kraj1> {
     private String drzava;
     private List<Vlak1> odhodi;
 
+    /**
+     * Konstruktor
+     */
     public Kraj1(String ime, String drzava) {
         this.id = naslednjiID;
         naslednjiID++;
         this.ime = ime;
         this.drzava = drzava;
-        odhodi = new ArrayList<>();
+        odhodi = new ArrayList<>(); //na začetku je prazen
     }
 
     public int getId() {
@@ -105,6 +114,10 @@ class Kraj1 implements Comparable<Kraj1> {
         return odhodi;
     }
 
+    /**
+     * podan vlak doda na seznam odhodov iz tega kraja
+     * @return - true, če je vlak uspešno dodan
+     */
     public boolean dodajOdhod(Vlak1 vlak) {
         if (odhodi.contains(vlak))
             return false;
@@ -112,10 +125,16 @@ class Kraj1 implements Comparable<Kraj1> {
         return true;
     }
 
+
+    /**
+     * Izpis podatkov o kraju
+     * @return - vrne izpis
+     */
     @Override
     public String toString() {
         return String.format("%s (%s)", this.ime, this.drzava);
     }
+
 
     public String vsiPodatki(boolean sort) {
         StringBuilder tmp = new StringBuilder(this.toString());
@@ -127,6 +146,11 @@ class Kraj1 implements Comparable<Kraj1> {
         return tmp.toString();
     }
 
+    /**
+     * Poišče množico vseh krajev, ki so dosegljivi za največ k prestopanj
+     * @param prestopanja - št prestopanj
+     * @return - vrne destinacijo
+     */
     public Set<Kraj1> destinacije(int prestopanja) {
         Set<Kraj1> dest = new TreeSet<>();
         dest.add(this);
@@ -142,6 +166,9 @@ class Kraj1 implements Comparable<Kraj1> {
         return dest;
     }
 
+    /**
+     * Primerjamo dva kraja
+     */
     @Override
     public int compareTo(Kraj1 k) {
         if (this.drzava.equals(k.drzava))
@@ -150,11 +177,17 @@ class Kraj1 implements Comparable<Kraj1> {
     }
 }
 
+/**
+ * Hrani vse informacije o vlakih
+ */
 abstract class Vlak1 implements Comparable<Vlak1> {
     private String oznaka;
     private Kraj1 start, cilj;
     private int casVoznje; // čas vožnje v minutah od <start> do <cilj>
 
+    /**
+     * Konstruktor
+     */
     public Vlak1(String oznaka, Kraj1 start, Kraj1 cilj, int cas) {
         this.oznaka = oznaka;
         this.start = start;
@@ -174,18 +207,27 @@ abstract class Vlak1 implements Comparable<Vlak1> {
 
     public abstract double cenaVoznje();
 
+    /**
+     * Metoda za izpis
+     */
     @Override
     public String toString() {
         String cas = this.casVoznje < 60 ? String.format("%d min", this.casVoznje) : String.format("%d.%02dh", this.casVoznje / 60, this.casVoznje % 60);
         return String.format("Vlak %s (%s) %s -- %s (%s, %.2f EUR)", oznaka, opis(), start, cilj, cas, cenaVoznje());
     }
 
+    /**
+     * Primerjamo ceno voznje
+     */
     @Override
     public int compareTo(Vlak1 v) {
         return Double.compare(v.cenaVoznje(), this.cenaVoznje());
     }
 }
 
+/**
+ * Atributi razreda RegionalniVlak
+ */
 class RegionalniVlak1 extends Vlak1 {
     private static final int hitrost = 50; // povprečna hitrost regionalnih vlakov je 50 km/h
     private static final double cenaKm = 0.068; // cena v EUR za km razdalje
@@ -205,6 +247,9 @@ class RegionalniVlak1 extends Vlak1 {
     }
 }
 
+/**
+ * Atributi razreda EkspresniVlak
+ */
 class EkspresniVlak1 extends Vlak1 {
     private static final int hitrost = 110; // povprečna hitrost ekspresnih vlakov je 110 km/h
     private static final double cenaKm = 0.154; // cena v EUR za km razdalje
@@ -220,6 +265,7 @@ class EkspresniVlak1 extends Vlak1 {
         return "ekspresni";
     }
 
+    // Regionalni vlaki imajo doplacilo
     @Override
     public double cenaVoznje() {
         return super.getCasVoznje() / 60.0 * hitrost * cenaKm + this.doplacilo;
@@ -227,6 +273,8 @@ class EkspresniVlak1 extends Vlak1 {
 }
 
 class EuroRail1 {
+
+    // Zbirka vseh krajev in povezav
     private List<Kraj1> kraji = new ArrayList<>();
     private List<Vlak1> povezave = new ArrayList<>();
 
@@ -237,6 +285,12 @@ class EuroRail1 {
         return null;
     }
 
+    /**
+     * Vrne id kraja
+     *
+     * @param id
+     * @return vrne null če kraj id ne obstaja
+     */
     private Kraj1 vrniKrajID(int id) {
         for (Kraj1 k : kraji)
             if (k.getId() == id)
@@ -244,15 +298,20 @@ class EuroRail1 {
         return null;
     }
 
-    //
-    // branje podatkov iz datotek
-    //
+
+    /**
+     * Preberemo kraje iz datoteke kraji.txt. Kraji so ločeni s ; kraje zapiše zbirko krajev
+     *
+     * @param imeDatoteke - datoteka, ki jo preberemo
+     * @return - vrne true če je uspešno prebral datoteko
+     */
 
     public boolean preberiKraje(String imeDatoteke) {
-        try (Scanner sc = new Scanner(new File(imeDatoteke))) {
+        // try v tem primeru ni nujem lahko bi metodi dodali throws
+        try (Scanner sc = new Scanner(new File(imeDatoteke))) { //odpremo datoteko
             while (sc.hasNextLine()) {
                 String[] elementi = sc.nextLine().split(";");
-                if (elementi.length < 2)
+                if (elementi.length < 2) // nimamo zadosti podatkov
                     continue;
                 if (vrniKraj(elementi[0]) != null) // kraj s tem imenom je že v seznamu
                     continue;
@@ -264,26 +323,33 @@ class EuroRail1 {
         }
     }
 
+    /**
+     * Iz podane datoteke prebere podatke o vlakih in jih zapiše v zbirko vlakov. Tukaj moramo biti pozorni za
+     * katero vrsto vlaka gre.
+     *
+     * @param imeDatoteke - datoteka ki jo preberemo
+     * @return - vrne true, če je branje uspešno
+     */
     public boolean preberiPovezave(String imeDatoteke) {
         try (Scanner sc = new Scanner(new File(imeDatoteke))) {
             while (sc.hasNextLine()) {
                 String[] elementi = sc.nextLine().split(";");
-                if (elementi.length < 4)
+                if (elementi.length < 4) //nimamo zadosti podatkov
                     continue;
-                Kraj1 k1 = vrniKraj(elementi[1]);
-                Kraj1 k2 = vrniKraj(elementi[2]);
+                Kraj1 k1 = vrniKraj(elementi[1]); //drugi podatek je kraj odhoda
+                Kraj1 k2 = vrniKraj(elementi[2]); //tretji podatek je kraj prihoda
                 if (k1 == null || k2 == null || k1 == k2)
                     continue; // če enega kraja (ali obeh) ni v seznamu ali če gre za isti kraj, preskoči to vrstico
                 int casMinute = 0;
-                int ind = elementi[3].indexOf(".");
+                int ind = elementi[3].indexOf("."); //cena, ki je v double
                 if (ind < 0)
                     casMinute = Integer.parseInt(elementi[3]);
                 else
                     casMinute = Integer.parseInt(elementi[3].substring(0, ind)) * 60 + Integer.parseInt(elementi[3].substring(ind + 1));
                 Vlak1 v;
-                if (elementi.length > 4)
+                if (elementi.length > 4) //če je Ekspresni vlak
                     v = new EkspresniVlak1(elementi[0], k1, k2, casMinute, Double.parseDouble(elementi[4]));
-                else
+                else //Regionalni vlak
                     v = new RegionalniVlak1(elementi[0], k1, k2, casMinute);
                 if (k1.dodajOdhod(v))
                     povezave.add(v);
@@ -294,6 +360,12 @@ class EuroRail1 {
         }
     }
 
+    /**
+     * Metoda prebere binarno datoteko in izpiše informacije o krajih in o vlakih
+     *
+     * @param imeDatoteke
+     * @return
+     */
     public boolean preberiPovezaveBin(String imeDatoteke) {
         try (FileInputStream vhod = new FileInputStream(imeDatoteke)) {
             while (vhod.available() > 0) {
@@ -333,22 +405,27 @@ class EuroRail1 {
         }
     }
 
-    //
-    // izpisi podatkov
-    //
-
+    /**
+     * Izpiše kraje
+     */
     public void izpisiKraje() {
         System.out.println("Kraji, povezani z vlaki:");
         for (Kraj1 k : kraji)
             System.out.println(k);
     }
 
+    /**
+     * Izpiše vse kraje in vse podatke o odhodu vlakov
+     */
     public void izpisiKrajeVsePodatke() {
         System.out.println("Kraji in odhodi vlakov:");
         for (Kraj1 k : kraji)
             System.out.println(k.vsiPodatki(false));
     }
 
+    /**
+     * Izpiše kraje po abecedi
+     */
     public void izpisiKrajePoAbecedi() {
         System.out.println("Kraji in odhodi vlakov (po abecedi):");
         ArrayList<Kraj1> seznam = new ArrayList<>(kraji);
@@ -357,6 +434,9 @@ class EuroRail1 {
             System.out.println(k.vsiPodatki(true));
     }
 
+    /**
+     * Izpis vseh povezav
+     */
     public void izpisiPovezave() {
         System.out.println("Vlaki, ki povezujejo kraje:");
         for (Vlak1 v : povezave)
